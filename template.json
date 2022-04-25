@@ -2,8 +2,8 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "storageAccounts_sayanstr1_name": {
-            "defaultValue": "sayanstr1",
+        "storageAccounts_vamsidhar_name": {
+            "defaultValue": "vamsi",
             "type": "String"
         }
     },
@@ -12,7 +12,7 @@
         {
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2021-09-01",
-            "name": "[parameters('storageAccounts_sayanstr1_name')]",
+            "name": "[parameters('storageAccounts_vamsi_name')]",
             "location": "eastus",
             "sku": {
                 "name": "Standard_LRS",
@@ -53,9 +53,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/blobServices",
             "apiVersion": "2021-09-01",
-            "name": "[concat(parameters('storageAccounts_sayanstr1_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_vamsi_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_sayanstr1_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_vamsi_name'))]"
             ],
             "sku": {
                 "name": "Standard_LRS",
@@ -86,9 +86,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/fileServices",
             "apiVersion": "2021-09-01",
-            "name": "[concat(parameters('storageAccounts_sayanstr1_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_vamsi_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_sayanstr1_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_vamsi_name'))]"
             ],
             "sku": {
                 "name": "Standard_LRS",
@@ -99,18 +99,18 @@
         {
             "type": "Microsoft.Storage/storageAccounts/queueServices",
             "apiVersion": "2021-09-01",
-            "name": "[concat(parameters('storageAccounts_sayanstr1_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_vamsi_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_sayanstr1_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_vamsi_name'))]"
             ]
            
         },
         {
             "type": "Microsoft.Storage/storageAccounts/tableServices",
             "apiVersion": "2021-09-01",
-            "name": "[concat(parameters('storageAccounts_sayanstr1_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_vamsi_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_sayanstr1_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_vamsi_name'))]"
             ],
             "properties": {
                 "cors": {
@@ -121,10 +121,10 @@
         {
             "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
             "apiVersion": "2021-09-01",
-            "name": "[concat(parameters('storageAccounts_sayanstr1_name'), '/default/testcontainer')]",
+            "name": "[concat(parameters('storageAccounts_vamsi_name'), '/default/testcontainer')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccounts_sayanstr1_name'), 'default')]",
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_sayanstr1_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccounts_vamsi_name'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_vamsi_name'))]"
             ],
             "properties": {
                 "immutableStorageWithVersioning": {
